@@ -1,24 +1,30 @@
 import { useRef } from "react";
 
 export const RefPractice = () => {
-  const formRef = useRef(0);
+  const formRef = useRef(null);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formRef);
-    formRef.current.focus();
+
+    const formData = new FormData(formRef.current);
+    console.log("Form Data: ", Object.fromEntries(formData.entries()));
   };
   return (
-    <form>
-      {console.log(formRef)}
+    <form ref={formRef} onSubmit={submitHandler}>
       <div>
         <label htmlFor="name">Name:</label>
-        <input ref={formRef} type="text" id="name" placeholder="Enter name.." />
+        <input type="text" id="name" name="name" placeholder="Enter name.." />
       </div>
       <div>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" placeholder="Enter email.." />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter email.."
+        />
       </div>
-      <button onClick={submitHandler}>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
