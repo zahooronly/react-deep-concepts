@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const EffectPractice = () => {
-  //   const [count, setCount] = useState(0);
-  //   const incrementHandler = () => setCount(() => count + 1);
-  //   const decrementHandler = () => setCount(() => count - 1);
-  //   const resetHandler = () => setCount(0);
-  const [section, setSection] = useState("posts");
+  const [sectionTitle, setSection] = useState("posts");
+  const [content, setContent] = useState(null);
+  const [err, setErr] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`https://jsonplaceholder.typicode.com/${sectionTitle}`)
+      .then((response) => response.json())
+      .then((json) => setContent(json))
+      .catch((err) => setErr(err));
+    return controller.abort();
+  }, [sectionTitle]);
 
   return (
     <>
-      {/* <div>
-        <button onClick={incrementHandler}>+</button>
-        <span>{count}</span>
-        <button onClick={decrementHandler}>-</button>
-      </div>
-      <button onClick={resetHandler}>Reset</button> */}
       <button onClick={() => setSection("posts")}>Posts</button>
       <button onClick={() => setSection("comments")}>Comments</button>
       <button onClick={() => setSection("users")}>Users</button>
-      <h1>{section}</h1>
+      <h1>{sectionTitle}</h1>
+      {err && <p>{err}</p>}
+      {content && <div>{JSON.stringify(content)}</div>}
     </>
   );
 };
