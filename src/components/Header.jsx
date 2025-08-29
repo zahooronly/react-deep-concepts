@@ -13,6 +13,9 @@ export const Header = () => {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
+        <li>
+          <Link to="/github">GitHub</Link>
+        </li>
       </ul>
     </nav>
   );
