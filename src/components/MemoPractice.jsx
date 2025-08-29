@@ -26,7 +26,7 @@ export const MemoPractice = () => {
   function slowFunction(number) {
     console.log("Calling this function...");
     // for (let i = 0; i <= 1000000; i++) {
-    //   console.log();
+    //   console.log("k");
     // }
     console.log("After loop");
     return number * 2;
