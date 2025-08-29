@@ -14,7 +14,6 @@ import Contact from "./components/Contact.jsx";
 import Home from "./components/Home.jsx";
 import User from "./components/User.jsx";
 import GitHub, { getGitHubUser } from "./components/GitHub.jsx";
-import { ThemeProvider } from "./context/ThemeProvider.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -51,9 +50,6 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-
       <RouterProvider router={router} />
-    </ThemeProvider>
   </StrictMode>
 );

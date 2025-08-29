@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { ThemeButton } from "../context/ThemeButton";
 
 export const Header = () => {
   return (
@@ -18,7 +17,6 @@ export const Header = () => {
           <Link to="/github">GitHub</Link>
         </li>
       </ul>
-      <ThemeButton />
     </nav>
   );
 };
