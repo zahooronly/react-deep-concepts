@@ -1,6 +1,7 @@
 // import { EffectPractice } from "./components/EffectPractice";
 // import { StatesPractice } from "./components/StatesPractice";
-import { RefPractice } from "./components/RefPractice";
+import { MemoPractice } from "./components/MemoPractice";
+// import { RefPractice } from "./components/RefPractice";
 import "./index.css";
 
 export default function App() {
@@ -8,7 +9,8 @@ export default function App() {
     <>
       {/* <StatesPractice /> */}
       {/* <EffectPractice /> */}
-      <RefPractice />
+      {/* <RefPractice /> */}
+      <MemoPractice />
     </>
   );
 }
